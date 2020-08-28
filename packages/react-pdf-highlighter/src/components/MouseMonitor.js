@@ -1,12 +1,15 @@
 // @flow
 
 import React, { Component } from "react";
+import {PdfHighlighter} from "../../build";
 
 type Props = {
   onMoveAway: () => void,
   paddingX: number,
   paddingY: number,
-  children: React$Element<*>
+  children: React$Element<*>,
+  rotate: number,
+  scale: number
 };
 
 class MouseMonitor extends Component<Props> {

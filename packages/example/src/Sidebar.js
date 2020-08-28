@@ -1,20 +1,20 @@
 // @flow
 
 import React from "react";
-
 import type { T_Highlight } from "react-pdf-highlighter/src/types";
 type T_ManuscriptHighlight = T_Highlight;
 
 type Props = {
   highlights: Array<T_ManuscriptHighlight>,
-  resetHighlights: () => void
+  resetHighlights: () => void,
+    removeHighlight: (highlight: T_ManuscriptHighlight) => void
 };
 
 const updateHash = highlight => {
   document.location.hash = `highlight-${highlight.id}`;
 };
 
-function Sidebar({ highlights, resetHighlights }: Props) {
+function Sidebar({ highlights, resetHighlights, removeHighlight }: Props) {
   return (
     <div className="sidebar" style={{ width: "25vw" }}>
       <div className="description" style={{ padding: "1rem" }}>
@@ -44,14 +44,23 @@ function Sidebar({ highlights, resetHighlights }: Props) {
                 </blockquote>
               ) : null}
               {highlight.content.image ? (
-                <div
-                  className="highlight__image"
-                  style={{ marginTop: "0.5rem" }}
-                >
-                  <img src={highlight.content.image} alt={"Screenshot"} />
-                </div>
+                  <div>
+
+                        <div
+                         className="highlight__image"
+                        style={{ marginTop: "0.5rem" }}
+                        >
+                            <img src={highlight.content.image} alt={"Screenshot"} />
+                        </div>
+                  </div>
+
               ) : null}
             </div>
+              <div>
+                  <button onClick={() => {
+                      removeHighlight(highlight);
+                  }}>Remove</button>
+              </div>
             <div className="highlight__location">
               Страница {highlight.position.pageNumber}
             </div>

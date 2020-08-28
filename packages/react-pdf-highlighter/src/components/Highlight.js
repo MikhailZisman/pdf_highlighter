@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import "../style/Highlight.css";
 
 import type { T_LTWH } from "../types.js";
+import TransformWrapper from "./TransformWrapper";
 
 type Props = {
   position: {
@@ -18,7 +19,9 @@ type Props = {
     emoji: string,
     text: string
   },
-  isScrolledTo: boolean
+  isScrolledTo: boolean,
+  rotate: number,
+  scale: number
 };
 
 class Highlight extends Component<Props> {
@@ -29,7 +32,9 @@ class Highlight extends Component<Props> {
       onMouseOver,
       onMouseOut,
       comment,
-      isScrolledTo
+      isScrolledTo,
+      rotate,
+      scale
     } = this.props;
 
     const { rects, boundingRect } = position;

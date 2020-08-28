@@ -70,7 +70,9 @@ export type T_PDFJS_Viewer = {
     pageNumber: number,
     destArray: Array<mixed>
   }) => void,
-  currentScaleValue: string
+  currentScaleValue: string,
+  currentScale: string,
+  pagesRotation:string
 };
 
 export type T_PDFJS_Document = {

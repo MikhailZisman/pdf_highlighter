@@ -19,7 +19,7 @@
     "puppeteer": "^2.0.0"
   },
   "scripts": {
-    "start": "GENERATE_SOURCEMAP=false HTTPS=true react-scripts start",
+    "start": "GENERATE_SOURCEMAP=false react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "BROWSER=none jest --maxWorkers=1 -c jest.config.js"
   },
@@ -27,7 +27,7 @@
     "extends": "react-app"
   },
   "proxy": "https://localhost:3000",
-  "homepage": "https://agentcooper.github.io/react-pdf-highlighter",
+  "homepage": "https://mikhailzisman.github.io/pdf_highlighter",
   "browserslist": {
     "production": [
       ">0.2%",

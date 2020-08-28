@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
+import TransformWrapper from "./TransformWrapper";
 
 // $FlowFixMe
 import Rnd from "react-rnd";
@@ -11,16 +12,29 @@ import type { T_ViewportHighlight, T_LTWH } from "../types";
 
 type Props = {
   highlight: T_ViewportHighlight,
-  onChange: (rect: T_LTWH) => void
+  onChange: (rect: T_LTWH) => void,
+    rotate: number,
+    scale:number
 };
 
 class AreaHighlight extends Component<Props> {
   render() {
-    const { highlight, onChange, ...otherProps } = this.props;
+    const { highlight, onChange, rotate, scale, ...otherProps } = this.props;
 
     return (
       <Rnd
         className="AreaHighlight"
+        disableDragging={true}
+        enableResizing={{
+            top: false,
+            right: false,
+            bottom: false,
+            left: false,
+            topRight: false,
+            bottomRight: false,
+            bottomLeft: false,
+            topLeft: false,
+        }}
         onDragStop={(_, data) => {
           const boundingRect = {
             ...highlight.position.boundingRect,

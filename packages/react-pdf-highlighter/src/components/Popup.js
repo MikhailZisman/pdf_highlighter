@@ -8,7 +8,9 @@ type Props = {
   onMouseOver: (content: React$Element<*>) => void,
   popupContent: React$Element<*>,
   onMouseOut: () => void,
-  children: React$Element<*>
+  children: React$Element<*>,
+    rotate: number,
+    scale: number
 };
 
 type State = {
@@ -21,15 +23,20 @@ class Popup extends Component<Props, State> {
   };
 
   render() {
-    const { onMouseOver, popupContent, onMouseOut } = this.props;
+    const { onMouseOver, popupContent, onMouseOut, rotate,scale } = this.props;
+    const style = {position: 'absolute'};
 
     return (
       <div
+        className="full-size"
+        style={style}
         onMouseOver={() => {
           this.setState({ mouseIn: true });
 
           onMouseOver(
             <MouseMonitor
+                rotate={rotate}
+                scale={scale}
               onMoveAway={() => {
                 if (this.state.mouseIn) {
                   return;

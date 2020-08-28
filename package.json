@@ -12,7 +12,9 @@
     "clean": "lerna clean && lerna run clean",
     "flow": "flow check",
     "format": "prettier --write 'packages/**/*.js'",
-    "format:check": "prettier --check 'packages/**/*.js'"
+    "format:check": "prettier --check 'packages/**/*.js'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d packages/example/build"
   },
   "devDependencies": {
     "concurrently": "^5.0.2",

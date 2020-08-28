@@ -26,7 +26,9 @@ type Props = {
   onDragStart: () => void,
   onDragEnd: () => void,
   shouldStart: (event: MouseEvent) => boolean,
-  onChange: (isVisible: boolean) => void
+  onChange: (isVisible: boolean) => void,
+  rotate: number,
+  scale: number
 };
 
 class MouseSelection extends Component<Props, State> {
@@ -71,7 +73,7 @@ class MouseSelection extends Component<Props, State> {
 
     const that = this;
 
-    const { onSelection, onDragStart, onDragEnd, shouldStart } = this.props;
+    const { onSelection, onDragStart, onDragEnd, shouldStart, rotate, scale } = this.props;
 
     const container = this.root.parentElement;
 
@@ -136,9 +138,7 @@ class MouseSelection extends Component<Props, State> {
         }
 
         const end = containerCoords(event.pageX, event.pageY);
-
         const boundingRect = that.getBoundingRect(start, end);
-
         if (
           !(event.target instanceof HTMLElement) ||
           !container.contains(event.target) ||
@@ -162,7 +162,6 @@ class MouseSelection extends Component<Props, State> {
 
             if (event.target instanceof HTMLElement) {
               onSelection(startTarget, boundingRect, that.reset);
-
               onDragEnd();
             }
           }

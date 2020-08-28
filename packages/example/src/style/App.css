@@ -62,3 +62,8 @@ blockquote:before {
 blockquote:after {
   content: close-quote;
 }
+
+.full-size {
+  height: 100%;
+  width: 100%;
+}
