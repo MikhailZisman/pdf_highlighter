@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import TransformWrapper from "./TransformWrapper";
+import { getEmojiStyle } from '../lib/coordinates';
 
 // $FlowFixMe
 import Rnd from "react-rnd";
@@ -20,9 +21,19 @@ type Props = {
 class AreaHighlight extends Component<Props> {
   render() {
     const { highlight, onChange, rotate, scale, ...otherProps } = this.props;
+    const { position, comment } = highlight;
 
     return (
-      <TransformWrapper rotate={rotate} scale={scale}>
+      <div>
+        {comment ? (
+          <div
+            className="Highlight__emoji"
+            style={getEmojiStyle(position.boundingRect, rotate)}
+          >
+            {comment.emoji}
+          </div>
+          ) : null
+        }
         <Rnd
           className="AreaHighlight"
           disableDragging={true}
@@ -69,7 +80,7 @@ class AreaHighlight extends Component<Props> {
           }}
           {...otherProps}
         />
-      </TransformWrapper>
+      </div>
     );
   }
 }
