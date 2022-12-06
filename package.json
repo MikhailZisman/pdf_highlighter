@@ -17,7 +17,7 @@
   "devDependencies": {
     "concurrently": "^5.0.2",
     "flow-bin": "^0.73.0",
-    "gh-pages": "0.11.0",
+    "gh-pages": "4.0.0",
     "lerna": "^3.20.2",
     "prettier": "^1.19.1",
     "wait-on": "^4.0.0"
