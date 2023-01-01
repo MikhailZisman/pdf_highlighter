@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.10",
-    "pdfjs-dist": "2.2.228",
+    "pdfjs-dist": "2.16.105",
     "prop-types": "^15.7.2",
     "react-pointable": "^1.1.1",
     "react-rnd": "^7.1.5",
